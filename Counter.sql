@@ -1,0 +1,1 @@
+﻿update Ad set Counter=Null;
