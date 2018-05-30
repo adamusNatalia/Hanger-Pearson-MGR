@@ -46,7 +46,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="@Url.Action("New", "Catalog")" class="navbar-left">Nowości</a></li>
                             <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Katalog <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Katalog <b class="caret" style="color:#000;"></b></a>
                                 <ul class="dropdown-menu multi-level">                                  
                                     <li class="dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Damska Odzież</a>
@@ -82,10 +82,18 @@
                         <ul class="nav navbar-nav navbar-right profil">
                             @if (Session["LogedUserID"] != null)
                             {
+                                <li class="icon like" style="margin-top:-7px;">
+                                    <a href="@Url.Action("Favorites", "UserProfil",new { id = (Session["LogedUserID"] as Hanger.Models.User).Id })">
+                                        <img alt="Brand" src="~/Pictures/Icons/like.png" style="width:40px">
+                                    </a>
+                                </li>
+                            }
+                            @if (Session["LogedUserID"] != null)
+                            {
                                 <li class="icon" style="margin-top:-7px;">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                         <img alt="Brand" src="~/Pictures/Icons/user3.png" style="width:40px">
-                                        <b class="caret"></b>
+                                        
                                      </a>
                                     <ul class="dropdown-menu multi-level">
                                         <li><a href="@Url.Action("UserProfil", "UserProfil",new { id = (Session["LogedUserID"] as Hanger.Models.User).Id })">Twoje przedmioty</a></li>                                     
@@ -93,10 +101,14 @@
                                     </ul>
                                </li>
                             }
+
                             @if (Session["LogedUserID"] != null)
                             {
                                 <li class="full" id="login">
                                     @Html.ActionLink("Wyloguj się", "LogOut", "Login")
+                                </li>
+                                <li class="frame" id="sell">
+                                    @Html.ActionLink("Dodaj ogłoszenie", "New", "Ad")
                                 </li>
                             }
                             else
@@ -105,7 +117,7 @@
                                     @Html.ActionLink("Zaloguj się", "Login", "Login")
                                 </li>
 
-                            }
+                            
                             @*@if (Session["LogedUserID"] != null)
                             {
                                 <li class="frame" id="sell">
@@ -123,7 +135,7 @@
                             <li class="frame" id="sell">
                                 @Html.ActionLink("Zarejestruj się", "Register", "Register")
                             </li>
-                            
+                            }
                         </ul>
                     </div>
                 </div>

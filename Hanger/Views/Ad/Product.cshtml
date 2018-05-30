@@ -102,11 +102,11 @@
                 {
                     if (ViewBag.isInFavourites == false)
                     {
-                        <img alt="Favourite" src="/Pictures/Icons/heart.png" class="favourite" id="favouriteMainPhoto">
+                        <img alt="Favourite" src="/Pictures/Icons/like.png" class="favourite" id="favouriteMainPhoto">
                     }
                     else
                     {
-                        <img alt="Favourite" src="/Pictures/Icons/favorite-heart.png" class="favourite" id="favouriteMainPhoto">
+                        <img alt="Favourite" src="/Pictures/Icons/like_full.png" class="favourite" id="favouriteMainPhoto">
 
                     }
                 }
@@ -263,7 +263,7 @@
 }
 @{ int c = Model.Count() - 1;}
 
-<div id="wrapper">
+<div id="wrapper" style="margin:0px auto">
 
     <h3 class="block-title">
         <span>Polecane produkty</span>
